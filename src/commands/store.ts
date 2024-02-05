@@ -9,7 +9,7 @@ export async function store (interaction:CommandInteraction) {
   const assetID = interaction.options.getInteger('id')
 
   if (assetID.length === 0) {
-    return await interaction.reply('Please provide me with a store ID before I can continue!')
+    return await interaction.reply('Por favor, preciso de um ID para pesquisar este item.')
   }
 
   await interaction.deferReply()
@@ -24,7 +24,7 @@ export async function store (interaction:CommandInteraction) {
 
   if (errResult.hasError === true) {
     if (errResult.statusCode === 404) {
-      return await interaction.editReply("Couldn't find the requested store item. Did you type in the correct store ID?")
+      return await interaction.editReply("Não achei esse item, tem certeza que este ID está certo?")
     } else {
       return await interaction.editReply(errResult.displayText)
     }
@@ -42,7 +42,7 @@ export async function store (interaction:CommandInteraction) {
 
   const embed = new EmbedBuilder({
     title: data.name + ' ' + (data.isLimited === true ? emojiUtils.star : ''),
-    description: data.description === '' ? 'No description set.' : data.description,
+    description: data.description === '' ? 'Sem descrição.' : data.description,
     url: `https://polytoria.com/store/${data.id}`,
     thumbnail: {
       url: thumbnailURL
@@ -65,9 +65,9 @@ export async function store (interaction:CommandInteraction) {
   const assetType = data.type.toLowerCase()
   if (!['audio', 'decal', 'mesh'].includes(assetType)) {
     if (data.tags && data.tags.length > 0 && data.tags[0] !== '') {
-      embed.setDescription(data.description === '' ? 'No description set.' : data.description + '\n\n**Tags:** ' + (data.tags as string[]).map(tag => `\`${tag}\``).join(', '))
+      embed.setDescription(data.description === '' ? 'Sem descrição.' : data.description + '\n\n**Tags:** ' + (data.tags as string[]).map(tag => `\`${tag}\``).join(', '))
     } else {
-      embed.setDescription(data.description === '' ? 'No description set.' : data.description)
+      embed.setDescription(data.description === '' ? 'Sem descrição.' : data.description)
     }
 
     embed.addFields(
@@ -88,7 +88,7 @@ export async function store (interaction:CommandInteraction) {
     .addComponents(
       new ButtonBuilder()
         .setURL(`https://polytoria.com/store/${data.id}`)
-        .setLabel('View on Polytoria')
+        .setLabel('Veja no Polytoria')
         .setStyle(ButtonStyle.Link)
     )
 

@@ -19,16 +19,16 @@ export default [
   {
     data: new SlashCommandBuilder()
       .setName('status')
-      .setDescription('Checks to see if Polytoria is online/offline'),
+      .setDescription('Checa se Polytoria está online ou offline'),
     execute: status
   },
   {
     data: new SlashCommandBuilder()
-      .setName('store')
-      .setDescription('View the info of a store item via its store ID')
+      .setName('loja')
+      .setDescription('Dados sobre itens na loja do Polytoria.')
       .addIntegerOption(option =>
         option.setName('id')
-          .setDescription('ID of the store item to view')
+          .setDescription('ID do item da loja.')
           .setMinValue(1)
           .setRequired(true)
       ),
@@ -36,11 +36,11 @@ export default [
   },
   {
     data: new SlashCommandBuilder()
-      .setName('place')
-      .setDescription('View the info of a place via its place ID')
+      .setName('lugar')
+      .setDescription('Veja informações sobre places no Polytoria.')
       .addIntegerOption(option =>
         option.setName('id')
-          .setDescription('ID of the place to view')
+          .setDescription('ID da place.')
           .setMinValue(1)
           .setRequired(true)
       ),
@@ -49,10 +49,10 @@ export default [
   {
     data: new SlashCommandBuilder()
       .setName('guild')
-      .setDescription('View the info of a guild via its guild ID')
+      .setDescription('Veja informações sobre guilds no Polytoria')
       .addIntegerOption(option =>
         option.setName('id')
-          .setDescription('ID of the guild to view')
+          .setDescription('ID do guild')
           .setMinValue(1)
           .setRequired(true)
       ),
@@ -60,84 +60,84 @@ export default [
   },
   {
     data: new SlashCommandBuilder()
-      .setName('card')
-      .setDescription('Gives you an image with information about the specified user')
+      .setName('cartao')
+      .setDescription('Veja informações sobre um usuário')
       .addStringOption(option =>
         option.setName('username')
-          .setDescription("User's username you want to view")
+          .setDescription("Nome do usuário para consultar informações")
           .setRequired(true)
       ),
     execute: card
   },
   {
     data: new SlashCommandBuilder()
-      .setName('lookup')
-      .setDescription('Lookup information about the specified user')
+      .setName('pesquisar')
+      .setDescription('Pesquisar informações sobre um usuário')
       .addStringOption(option =>
         option.setName('username')
-          .setDescription("User's username you want to view")
+          .setDescription("Nome do usuário que você quer pesquisar")
           .setRequired(true)
       ),
     execute: lookUp
   },
   {
     data: new SlashCommandBuilder()
-      .setName('inventory')
-      .setDescription('View the inventory of the specified user')
+      .setName('inventário')
+      .setDescription('Veja o inventário de algum usuário')
       .addStringOption(option =>
         option.setName('username')
-          .setDescription("User's username you want to view")
+          .setDescription("Nome do usuário que você quer pesquisar")
           .setRequired(true)
       ),
     execute: inventory
   },
   {
     data: new SlashCommandBuilder()
-      .setName('level')
-      .setDescription('View the level of the specified user')
+      .setName('nivel')
+      .setDescription('Veja o nivel de algum usuário')
       .addStringOption(option =>
         option.setName('username')
-          .setDescription("User's username you want to view")
+          .setDescription("Nome do usuário que você quer pesquisar")
           .setRequired(true)
       ),
     execute: level
   },
   {
     data: new SlashCommandBuilder()
-      .setName('search')
-      .setDescription('Search Polytoria')
+      .setName('pesquisar')
+      .setDescription('Pesquisar no Polytoria')
       .addSubcommand(subCommand =>
-        subCommand.setName('place')
-          .setDescription('Search for places')
+        subCommand.setName('places')
+          .setDescription('Pesquisar por places')
           .addStringOption(option => option.setName('query').setDescription('The search query'))
       )
       .addSubcommand(subCommand =>
-        subCommand.setName('store')
-          .setDescription('Search for store items')
+        subCommand.setName('loja')
+          .setDescription('Pesquisar na loja do Polytoria')
           .addStringOption(option => option.setName('query').setDescription('The search query'))
       )
       .addSubcommand(subCommand =>
         subCommand.setName('toolbox')
-          .setDescription('Search for toolbox items')
+          .setDescription('Pesquisar no toolbox')
           .addStringOption(option => option.setName('query').setDescription('The search query'))
       )
       .addSubcommand(subCommand =>
-        subCommand.setName('user')
-          .setDescription('Search for users')
+        subCommand.setName('usuario')
+          .setDescription('pesquisar por usuários')
           .addStringOption(option => option.setName('query').setDescription('The search query'))
       ),
     execute: search
   },
   {
     data: new SlashCommandBuilder()
-      .setName('random')
-      .setDescription('Get random things from Polytoria'),
+      .setName('aleatorio')
+      .setDescription('Algo aleatório do Polytoria'),
     execute: random
   },
   {
     data: new SlashCommandBuilder()
-      .setName('info')
-      .setDescription('Information about Polytoria Community Bot'),
+      .setName('informacoes')
+      .setDescription('Informações sobre o Bot'),
     execute: info
   }
 

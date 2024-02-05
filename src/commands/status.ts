@@ -5,11 +5,11 @@ import { IStatus } from '../../types/index.js'
 
 const urlToCheck = [
   {
-    name: 'Main site',
+    name: 'Site principal',
     url: 'https://polytoria.com/'
   },
   {
-    name: 'Public APIs',
+    name: 'APIs Publicas',
     url: 'https://api.polytoria.com/v1/users/7348'
   },
   {
@@ -17,7 +17,7 @@ const urlToCheck = [
     url: 'https://blog.polytoria.com/'
   },
   {
-    name: 'Docs',
+    name: 'Documentação',
     url: 'https://docs.polytoria.com/'
   },
   {
@@ -51,23 +51,23 @@ async function checkStatus (url: string): Promise<IStatus> {
   const response = await axios.get(url, { validateStatus: () => true, timeout: 20000 })
   const endTime = new Date().getTime()
 
-  let statusText = 'Unknown'
+  let statusText = Desconhecido'
   const responseTime = endTime - startTime
 
   if (responseTime > 3000) {
-    statusText = 'Experiencing Issues'
+    statusText = 'Experienciando Problemas'
   }
 
   if (response.status.toString().startsWith('5')) {
-    statusText = 'Down'
+    statusText = 'Caiu'
   }
 
   if (response.status.toString().startsWith('4')) {
-    statusText = 'Forbidden'
+    statusText = 'Proíbido'
   }
 
   if (response.status.toString().startsWith('2')) {
-    statusText = 'Working'
+    statusText = 'Funcionando'
   }
 
   return {
@@ -79,8 +79,8 @@ async function checkStatus (url: string): Promise<IStatus> {
 
 export async function status (interaction:CommandInteraction) {
   const embed = new EmbedBuilder({
-    title: 'Polytoria Status',
-    description: emojiUtils.loading + ' Checking..',
+    title: 'Status do Polytoria',
+    description: emojiUtils.loading + ' Checando..',
     url: 'https://status.polytoria.com/',
     color: 0xFF5454
   })
@@ -90,7 +90,7 @@ export async function status (interaction:CommandInteraction) {
   for (const item of urlToCheck) {
     embed.addFields({
       name: item.name,
-      value: `${emojiUtils.loading} Checking`,
+      value: `${emojiUtils.loading} Checando`,
       inline: true
     })
   }
@@ -108,6 +108,6 @@ export async function status (interaction:CommandInteraction) {
     index2++
   }
 
-  embed.setDescription(`Average Response time: \`${(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length).toFixed(2)}ms\``)
+  embed.setDescription(`Tempo de resposta normal: \`${(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length).toFixed(2)}ms\``)
   await interaction.editReply({ embeds: [embed] })
 }

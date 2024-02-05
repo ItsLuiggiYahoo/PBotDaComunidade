@@ -59,7 +59,7 @@ client.on(Events.InteractionCreate, async (interaction:BaseInteraction) => {
   const command:any = interaction.client.commands.get(interaction.commandName)
 
   if (!command) {
-    interaction.reply("Command doesn't exist")
+    interaction.reply("Comando não existe.")
     return
   }
 
@@ -81,9 +81,9 @@ client.on(Events.InteractionCreate, async (interaction:BaseInteraction) => {
     }
   } catch (error: any) {
     if (interaction.replied) {
-      await interaction.followUp('Failed to execute command: ' + error)
+      await interaction.followUp('Não conseguimos executar o comando: ' + error)
     } else {
-      await interaction.reply('Failed to execute command: ' + error)
+      await interaction.reply('Não consigo executar o comando: ' + error)
     }
     warning({
       context: '[Bot]',

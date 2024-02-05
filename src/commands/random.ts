@@ -12,30 +12,30 @@ export async function random (interaction:CommandInteraction) {
   const embed = new EmbedBuilder()
     .setTitle('Randomizer!')
     .setColor(0xFF5454)
-    .setDescription('Welcome to the randomizer! Pick a feature on Polytoria that you would like us to randomize for you.')
+    .setDescription('Bem vindo ao randomizer! Selecione uma das funcionalidades abaixo e te daremos uma coisa aleatória daquele assunto em especifico.')
 
   const placeOption = new StringSelectMenuOptionBuilder()
     .setLabel('🎮 Places')
-    .setDescription('Get a random place that is available on Polytoria!')
+    .setDescription('Place aleatória no Polytoria')
     .setValue('place')
 
   const userOption = new StringSelectMenuOptionBuilder()
-    .setLabel('🗣️ Users')
-    .setDescription('Get a random user that is on Polytoria!')
+    .setLabel('🗣️ Usuário')
+    .setDescription('Usuário aleatório no Polytoria')
     .setValue('user')
 
   const guildOption = new StringSelectMenuOptionBuilder()
     .setLabel('🫂 Guilds')
-    .setDescription('Get a random guild that is available on Polytoria!')
+    .setDescription('Guild aleatório no Polytoria')
     .setValue('guild')
 
   const storeOption = new StringSelectMenuOptionBuilder()
-    .setLabel('🏪 Store')
-    .setDescription('Get a random asset that is available on Polytoria!')
+    .setLabel('🏪 Loja')
+    .setDescription('Item aleatório na loja')
     .setValue('store')
 
   const selectMenu = new StringSelectMenuBuilder()
-    .setPlaceholder('Asset Type...')
+    .setPlaceholder('Qual coisa?')
     .setCustomId('select')
     .addOptions(
       placeOption,

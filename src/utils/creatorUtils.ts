@@ -17,7 +17,7 @@ export class creatorUtils {
     if (creator.creatorType === 'User') {
       const userData = await userUtils.getUserData(creator.creatorID)
       if (userData.Success === false) {
-        return 'Invaild user.'
+        return 'Usuário invalido.'
       }
       result = userData.Username
     } else {
