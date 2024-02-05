@@ -51,7 +51,7 @@ async function checkStatus (url: string): Promise<IStatus> {
   const response = await axios.get(url, { validateStatus: () => true, timeout: 20000 })
   const endTime = new Date().getTime()
 
-  let statusText = Desconhecido'
+  let statusText = 'Desconhecido'
   const responseTime = endTime - startTime
 
   if (responseTime > 3000) {

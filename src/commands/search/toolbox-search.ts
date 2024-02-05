@@ -29,7 +29,7 @@ export async function toolbox (interaction:CommandInteraction) {
 
     if (response.data.data.length === 0) {
       // If data is empty, set the description accordingly
-      return 'There are no results for your toolbox search.'
+      return 'Sem resultados'
     }
 
     // @ts-expect-error
@@ -71,7 +71,7 @@ export async function toolbox (interaction:CommandInteraction) {
   const filter = () => true
 
   // Hide buttons if there are no results
-  if (toolboxData === 'There are no results for your toolbox search.') {
+  if (toolboxData === 'Sem resultados') {
     leftBtn.setDisabled(true)
     rightBtn.setDisabled(true)
   }

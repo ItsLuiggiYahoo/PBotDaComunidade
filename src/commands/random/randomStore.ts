@@ -38,7 +38,7 @@ export async function randomStore (interaction: CommandInteraction): Promise<any
 
   const embed = new EmbedBuilder({
     title: data.name + ' ' + (data.isLimited === true ? emojiUtils.star : ''),
-    description: data.description === '' ? 'No description set.' : data.description,
+    description: data.description === '' ? 'Sem descrição.' : data.description,
     url: `https://polytoria.com/store/${data.id}`,
     thumbnail: {
       url: thumbnailURL
@@ -46,12 +46,12 @@ export async function randomStore (interaction: CommandInteraction): Promise<any
     color: 0xFF5454,
     fields: [
       {
-        name: 'Creator',
+        name: 'Criador',
         value: `[${creator.name}](${creatorLink})`,
         inline: true
       },
       {
-        name: 'Created At',
+        name: 'Criado em',
         value: dateUtils.atomTimeToDisplayTime(data.createdAt),
         inline: true
       }
@@ -61,18 +61,18 @@ export async function randomStore (interaction: CommandInteraction): Promise<any
   const assetType = data.type.toLowerCase()
   if (!['audio', 'decal', 'mesh'].includes(assetType)) {
     if (data.tags && data.tags.length > 0 && data.tags[0] !== '') {
-      embed.setDescription(data.description === '' ? 'No description set.' : data.description + '\n\n**Tags:** ' + (data.tags as string[]).map(tag => `\`${tag}\``).join(', '))
+      embed.setDescription(data.description === '' ? 'Sem descrição' : data.description + '\n\n**Tags:** ' + (data.tags as string[]).map(tag => `\`${tag}\``).join(', '))
     } else {
-      embed.setDescription(data.description === '' ? 'No description set.' : data.description)
+      embed.setDescription(data.description === '' ? 'Sem descrição' : data.description)
     }
     embed.addFields(
       {
-        name: 'Price',
+        name: 'Preço',
         value: emojiUtils.brick + ' ' + data.price.toString(),
         inline: true
       },
       {
-        name: 'Sales',
+        name: 'Vendas',
         value: data.sales.toString(),
         inline: true
       }
@@ -80,7 +80,7 @@ export async function randomStore (interaction: CommandInteraction): Promise<any
   }
 
   const redoButton = new ButtonBuilder()
-    .setLabel('Re-do Randomize')
+    .setLabel('Re-randomizar')
     .setStyle(ButtonStyle.Primary)
     .setCustomId('redo_button')
 
@@ -88,7 +88,7 @@ export async function randomStore (interaction: CommandInteraction): Promise<any
     .addComponents(
       new ButtonBuilder()
         .setURL(`https://polytoria.com/store/${data.id}`)
-        .setLabel('View on Polytoria')
+        .setLabel('Veja no Polytoria')
         .setStyle(ButtonStyle.Link),
       redoButton
     )

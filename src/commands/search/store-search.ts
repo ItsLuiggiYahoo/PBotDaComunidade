@@ -27,7 +27,7 @@ export async function storeSearch (interaction:CommandInteraction) {
   }
 
   const embed = new EmbedBuilder({
-    title: `Search results for "${searchQuery}"`,
+    title: `Resultados para "${searchQuery}"`,
     color: 0xFF5454
   })
 

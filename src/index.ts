@@ -44,7 +44,7 @@ success({ context: '[Bot]', message: 'Bot succesfully started.' })
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return
-  if (!message.content.startsWith('p!')) return
+  if (!message.content.startsWith('*')) return
   if (!message.inGuild) return
 
   await message.reply('The Polytoria Community Bot has switched to slash commands!')

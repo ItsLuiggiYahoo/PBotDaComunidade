@@ -15,7 +15,7 @@ export async function help (message: Message, args: string[]) {
   const embed = new EmbedBuilder({
     title: 'List of available commands',
     color: 0xFF5454,
-    description: 'Prefix: `p!`',
+    description: 'Prefix: `*`',
     thumbnail: {
       url: 'https://cdn.discordapp.com/icons/587167555068624915/4149b9aea50a0fd41260d71ac743407d.webp?size=128'
     }

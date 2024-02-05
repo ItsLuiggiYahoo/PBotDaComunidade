@@ -10,13 +10,13 @@ export async function search (interaction:CommandInteraction) {
 
   if (category === 'place') {
     placeSearch(interaction)
-  } else if (category === 'store') {
+  } else if (category === 'loja') {
     storeSearch(interaction)
   } else if (category === 'toolbox') {
     toolbox(interaction)
-  } else if (category === 'user') {
+  } else if (category === 'usuarios') {
     userSearch(interaction)
   } else {
-    await interaction.reply('No valid category supplied')
+    await interaction.reply('Nenhuma categoria selecionada')
   }
 }

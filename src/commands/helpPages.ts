@@ -1,7 +1,7 @@
 export default [
   [
     {
-      name: 'lookup `username`',
+      name: 'pesquisar `username`',
       value: "Lookup users information\n`username` - User's username you want to view",
       inline: false
     },
@@ -11,7 +11,7 @@ export default [
       inline: false
     },
     {
-      name: 'inventory `username`',
+      name: 'inventario `username`',
       value: "Let's you see the inventory of specified user\n`username` - User's username you want to view",
       inline: false
     },
@@ -28,7 +28,7 @@ export default [
   ],
   [
     {
-      name: 'store `id`',
+      name: 'loja `id`',
       value: 'View store info from store ID\n`id` - Store ID',
       inline: false
     },
@@ -38,12 +38,12 @@ export default [
       inline: false
     },
     {
-      name: 'level `username`',
+      name: 'nivel `username`',
       value: "Gives you information about specified user\n`username` - User's username you want to view",
       inline: false
     },
     {
-      name: 'card `username`',
+      name: 'cartao `username`',
       value: "Gives you an image with information about specified user\n`username` - User's username you want to view",
       inline: false
     },

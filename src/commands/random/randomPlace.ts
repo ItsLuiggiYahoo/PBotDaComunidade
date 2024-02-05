@@ -44,15 +44,15 @@ export async function randomPlace (interaction: CommandInteraction): Promise<any
 
   switch (data.accessType) {
     case 'everyone':
-      accessMessage = `${emojiUtils.public} **This place is currently joinable by everyone!**`
+      accessMessage = `${emojiUtils.public} **Todos porem entrar!**`
       break
     case 'purchase': {
       const accessPrice = data.accessPrice || 0
-      accessMessage = `${emojiUtils.brick} **This place requires payment of ${accessPrice.toLocaleString()} bricks.**`
+      accessMessage = `${emojiUtils.brick} **Requer pagamento de ${accessPrice.toLocaleString()} bricks.**`
       break
     }
     case 'whitelist':
-      accessMessage = `${emojiUtils.request} **This place is currently whitelisted.**`
+      accessMessage = `${emojiUtils.request} **É Whitelisted(apenas membros de uma lista)**`
       break
     default:
       break
@@ -68,12 +68,12 @@ export async function randomPlace (interaction: CommandInteraction): Promise<any
     color: 0xFF5454,
     fields: [
       {
-        name: 'Creator',
+        name: 'Criador',
         value: `[${creator.name}](https://polytoria.com/users/${creator.id})`,
         inline: true
       },
       {
-        name: 'Visits',
+        name: 'Visitas',
         value: data.visits.toLocaleString(),
         inline: true
       },
@@ -88,27 +88,27 @@ export async function randomPlace (interaction: CommandInteraction): Promise<any
         inline: true
       },
       {
-        name: 'Genre',
+        name: 'Genêro',
         value: data.genre.toLocaleString() || 'N/A',
         inline: true
       },
       {
-        name: 'Max Players',
+        name: 'Maximo de jogadores',
         value: data.maxPlayers.toLocaleString() || 'N/A',
         inline: true
       },
       {
-        name: 'Playing',
+        name: 'Jogando',
         value: data.playing.toLocaleString() || 'N/A',
         inline: true
       },
       {
-        name: 'Created At',
+        name: 'Criado em',
         value: dateUtils.atomTimeToDisplayTime(data.createdAt),
         inline: true
       },
       {
-        name: 'Updated At',
+        name: 'Atualizado em',
         value: dateUtils.atomTimeToDisplayTime(data.updatedAt),
         inline: true
       }

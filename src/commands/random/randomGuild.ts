@@ -33,22 +33,22 @@ export async function randomGuild (interaction: CommandInteraction): Promise<any
     .setColor(data.color)
     .addFields(
       {
-        name: 'Creator',
+        name: 'Criador',
         value: `[${creator.name}](https://polytoria.com/users/${creator.id})`,
         inline: true
       },
       {
-        name: 'Created At',
+        name: 'Criado em',
         value: dateUtils.atomTimeToDisplayTime(data.createdAt),
         inline: true
       },
       {
-        name: 'Join Type',
+        name: 'Tipo de entrada',
         value: data.joinType.toLocaleString(),
         inline: true
       },
       {
-        name: 'Members',
+        name: 'Membros',
         value: data.memberCount.toLocaleString(),
         inline: true
       },
@@ -64,7 +64,7 @@ export async function randomGuild (interaction: CommandInteraction): Promise<any
   }
 
   const redoButton = new ButtonBuilder()
-    .setLabel('Re-do Randomize')
+    .setLabel('Re-Randomizar')
     .setStyle(ButtonStyle.Primary)
     .setCustomId('redo_button')
 
@@ -72,7 +72,7 @@ export async function randomGuild (interaction: CommandInteraction): Promise<any
     .addComponents(
       new ButtonBuilder()
         .setURL(`https://polytoria.com/guilds/${data.id}`)
-        .setLabel('View on Polytoria')
+        .setLabel('Ver no Polytoria')
         .setStyle(ButtonStyle.Link),
       redoButton
     )

@@ -9,7 +9,7 @@ export async function card (interaction:CommandInteraction) {
   // @ts-expect-error
   const username = interaction.options.getString('username')
   if (!username || username.length === 0) {
-    return await interaction.reply('Please tell me the username so I can make you a card.')
+    return await interaction.reply('Eu preciso do seu nome para fazer um cartão')
   }
 
   await interaction.deferReply()
